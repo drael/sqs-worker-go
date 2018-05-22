@@ -83,7 +83,8 @@ func NewService(n string) (*Service, error) {
                Config: aws.Config{Endpoint: aws.String(SQSHost), Region: aws.String(AwsRegion)}}))
     s := sqs.New(sess)
 
-    resultURL, err := s.GetQueueUrl(&sqs.GetQueueUrlInput{
+    // resultURL, err := s.GetQueueUrl(&sqs.GetQueueUrlInput{
+    resultURL, err:= s.CreateQueue(&sqs.CreateQueueInput{
         QueueName: aws.String(n),
     })
     if err != nil {
