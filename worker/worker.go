@@ -89,6 +89,7 @@ func NewService(n string) (*Service, error) {
     })
     if err != nil {
         log.Println("Can't get the SQS queue")
+        log.Println(err)
         return nil, err
     }
 
